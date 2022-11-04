@@ -16,7 +16,7 @@
   <dependencies>
     <dependency>
       <groupId>dev.jspmarc.quarkusdemo</groupId>
-      <artifactId>dao-impl</artifactId>
+      <artifactId>dao</artifactId>
       <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>

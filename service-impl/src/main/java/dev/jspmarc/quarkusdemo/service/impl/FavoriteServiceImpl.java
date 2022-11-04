@@ -1,40 +1,44 @@
 package dev.jspmarc.quarkusdemo.service.impl;
 
-import dev.jspmarc.quarkusdemo.dao.api.FavoriteRepository;
+import dev.jspmarc.quarkusdemo.dao.Favorite;
 import dev.jspmarc.quarkusdemo.service.api.FavoriteService;
-import dev.jspmarc.springdemo.entity.dao.Favorite;
 import dev.jspmarc.springdemo.rest.web.model.request.FavoriteRequest;
 import dev.jspmarc.springdemo.rest.web.model.response.FavoriteResponse;
-import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
+import java.util.Date;
+import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
 @ApplicationScoped
 public class FavoriteServiceImpl implements FavoriteService {
 
-  @Inject
-  FavoriteRepository favoriteRepository;
-
   @Override
-  public Multi<FavoriteResponse> getAll() {
-    return favoriteRepository.findAll().map(favorite -> FavoriteResponse.builder()
-        .id(favorite.getId())
-        .gitHubLogin(favorite.getGitHubLogin())
+  public Uni<List<FavoriteResponse>> getAll() {
+    Uni<List<Favorite>> favorites = Favorite.listAll();
+
+    return favorites.map(list -> list.stream().map(favorite -> FavoriteResponse.builder()
+        .id(favorite.id.toString())
         .gitHubId(favorite.getGitHubId())
-        .build());
+        .gitHubLogin(favorite.getGitHubLogin())
+        .build()).toList());
   }
 
   @Override
   public Uni<FavoriteResponse> addToFavorite(FavoriteRequest favoriteRequest) {
-    return favoriteRepository.saveNew(Favorite.builder()
-            .gitHubLogin(favoriteRequest.getGitHubLogin())
-            .gitHubId(favoriteRequest.getGitHubId())
-            .build())
-        .map(favorite -> FavoriteResponse.builder()
-            .id(favorite.getId())
-            .gitHubId(favorite.getGitHubId())
-            .gitHubLogin(favorite.getGitHubLogin())
-            .build());
+    var favorite = Favorite.builder()
+        .gitHubId(favoriteRequest.getGitHubId())
+        .gitHubLogin(favoriteRequest.getGitHubLogin())
+        .createdBy("SYSTEM")
+        .createdDate(new Date())
+        .updatedBy("SYSTEM")
+        .updatedDate(new Date())
+        .version(1L)
+        .build();
+    Uni<Favorite> saving = favorite.save();
+    return saving.map(saved -> FavoriteResponse.builder()
+        .gitHubLogin(saved.getGitHubLogin())
+        .gitHubId(saved.getGitHubId())
+        .id(saved.id.toString())
+        .build());
   }
 }

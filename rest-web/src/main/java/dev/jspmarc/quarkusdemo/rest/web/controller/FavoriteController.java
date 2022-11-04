@@ -6,6 +6,7 @@ import dev.jspmarc.springdemo.rest.web.model.request.FavoriteRequest;
 import dev.jspmarc.springdemo.rest.web.model.response.FavoriteResponse;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
+import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -23,7 +24,7 @@ public class FavoriteController {
   FavoriteService favoriteService;
 
   @GET
-  public Multi<FavoriteResponse> getAll() {
+  public Uni<List<FavoriteResponse>> getAll() {
     return favoriteService.getAll();
   }
 

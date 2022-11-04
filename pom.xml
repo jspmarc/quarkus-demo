@@ -12,9 +12,8 @@
     <module>service-impl</module>
     <module>outbound-api</module>
     <module>outbound-impl</module>
-    <module>dao-api</module>
-    <module>dao-impl</module>
     <module>libraries</module>
+    <module>dao</module>
   </modules>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
@@ -92,6 +91,10 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-rest-client-reactive-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-mongodb-panache</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
