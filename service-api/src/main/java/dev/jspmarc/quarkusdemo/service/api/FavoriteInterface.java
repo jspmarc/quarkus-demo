@@ -2,10 +2,11 @@ package dev.jspmarc.quarkusdemo.service.api;
 
 import dev.jspmarc.springdemo.rest.web.model.request.FavoriteRequest;
 import dev.jspmarc.springdemo.rest.web.model.response.FavoriteResponse;
-import java.util.List;
+import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
 
 public interface FavoriteInterface {
 
-  List<FavoriteResponse> getAll();
-  FavoriteResponse addToFavorite(FavoriteRequest favoriteRequest);
+  Multi<FavoriteResponse> getAll();
+  Uni<FavoriteResponse> addToFavorite(FavoriteRequest favoriteRequest);
 }

@@ -2,6 +2,7 @@ package dev.jspmarc.quarkusdemo.outbound.api;
 
 import dev.jspmarc.springdemo.entity.constant.ApiPath;
 import dev.jspmarc.springdemo.entity.outbound.GitHubUser;
+import io.smallrye.mutiny.Uni;
 import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -18,5 +19,5 @@ public interface GitHubEndpointService {
   @GET
   @Path(ApiPath.GITHUB_USERS)
   @Produces(MediaType.APPLICATION_JSON)
-  List<GitHubUser> getUsers(@RestQuery int since, @QueryParam("per_page") int perPage);
+  Uni<List<GitHubUser>> getUsers(@RestQuery int since, @QueryParam("per_page") int perPage);
 }

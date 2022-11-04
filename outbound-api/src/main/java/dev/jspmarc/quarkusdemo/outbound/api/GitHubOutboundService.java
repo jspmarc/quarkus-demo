@@ -1,9 +1,10 @@
 package dev.jspmarc.quarkusdemo.outbound.api;
 
 import dev.jspmarc.springdemo.rest.web.model.response.GitHubUserResponse;
+import io.smallrye.mutiny.Uni;
 import java.util.List;
 
 public interface GitHubOutboundService {
 
-  List<GitHubUserResponse> getRandomUsers(int since);
+  Uni<List<GitHubUserResponse>> getRandomUsers(int since);
 }

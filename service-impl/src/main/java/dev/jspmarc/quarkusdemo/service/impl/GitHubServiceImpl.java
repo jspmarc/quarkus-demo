@@ -4,7 +4,7 @@ import dev.jspmarc.quarkusdemo.outbound.api.GitHubOutboundService;
 import dev.jspmarc.quarkusdemo.service.api.GitHubService;
 import dev.jspmarc.springdemo.entity.constant.GitHubServiceConstant;
 import dev.jspmarc.springdemo.rest.web.model.response.GitHubUserResponse;
-import java.util.Collections;
+import io.smallrye.mutiny.Uni;
 import java.util.List;
 import java.util.Random;
 import javax.enterprise.context.ApplicationScoped;
@@ -21,7 +21,7 @@ public class GitHubServiceImpl implements GitHubService {
   GitHubOutboundService gitHubOutboundService;
 
   @Override
-  public List<GitHubUserResponse> getRandomUsers() {
+  public Uni<List<GitHubUserResponse>> getRandomUsers() {
     int since = random.nextInt(GitHubServiceConstant.MAX_USER_ID);
     return gitHubOutboundService.getRandomUsers(since);
   }
