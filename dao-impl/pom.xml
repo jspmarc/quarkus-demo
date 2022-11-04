@@ -7,7 +7,7 @@
     <artifactId>quarkusdemo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>service-api</artifactId>
+  <artifactId>dao-impl</artifactId>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
@@ -15,8 +15,14 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-rest-client-reactive-jackson</artifactId>
+      <groupId>dev.jspmarc.quarkusdemo</groupId>
+      <artifactId>dao-api</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>dev.jspmarc.quarkusdemo</groupId>
+      <artifactId>libraries</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -25,6 +31,12 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-mongodb-panache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>dev.jspmarc.quarkusdemo</groupId>
+      <artifactId>dao-api</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>

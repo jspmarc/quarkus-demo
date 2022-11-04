@@ -5,7 +5,7 @@ import dev.jspmarc.springdemo.rest.web.model.response.FavoriteResponse;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 
-public interface FavoriteInterface {
+public interface FavoriteService {
 
   Multi<FavoriteResponse> getAll();
   Uni<FavoriteResponse> addToFavorite(FavoriteRequest favoriteRequest);
