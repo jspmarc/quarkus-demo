@@ -12,7 +12,6 @@
     <module>service-impl</module>
     <module>outbound-api</module>
     <module>outbound-impl</module>
-    <module>libraries</module>
     <module>dao</module>
     <module>entity</module>
   </modules>
