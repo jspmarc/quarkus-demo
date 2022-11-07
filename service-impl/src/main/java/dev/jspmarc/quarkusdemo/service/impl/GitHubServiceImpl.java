@@ -15,13 +15,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GitHubServiceImpl implements GitHubService {
 
-  public static final Random random = new Random();
-
   @Inject
   GitHubOutboundService gitHubOutboundService;
 
   @Override
   public Uni<List<GitHubUserResponse>> getRandomUsers() {
+    Random random = new Random();
     int since = random.nextInt(GitHubServiceConstant.MAX_USER_ID);
     return gitHubOutboundService.getRandomUsers(since);
   }
