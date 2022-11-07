@@ -16,6 +16,7 @@
     <module>outbound-impl</module>
     <module>libraries</module>
     <module>dao</module>
+    <module>entity</module>
   </modules>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>

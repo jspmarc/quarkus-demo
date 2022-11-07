@@ -21,6 +21,11 @@
     </dependency>
     <dependency>
       <groupId>dev.jspmarc.quarkusdemo</groupId>
+      <artifactId>entity</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>dev.jspmarc.quarkusdemo</groupId>
       <artifactId>outbound-impl</artifactId>
       <version>1.0.0-SNAPSHOT</version>
     </dependency>

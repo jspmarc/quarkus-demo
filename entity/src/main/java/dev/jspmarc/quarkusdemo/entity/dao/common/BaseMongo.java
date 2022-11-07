@@ -1,18 +1,23 @@
-package dev.jspmarc.quarkusdemo.dao.common;
+package dev.jspmarc.quarkusdemo.entity.dao.common;
 
-import io.quarkus.mongodb.panache.reactive.ReactivePanacheMongoEntity;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BaseMongo extends ReactivePanacheMongoEntity {
+public class BaseMongo {
 
+  @BsonId
+  @BsonProperty("_id")
+  private ObjectId id;
   private Long version = 1L;
   private Date createdDate = new Date();
   private String createdBy = "SYSTEM";
