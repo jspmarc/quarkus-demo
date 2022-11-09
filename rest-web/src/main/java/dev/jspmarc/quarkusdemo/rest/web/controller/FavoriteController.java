@@ -4,7 +4,6 @@ import dev.jspmarc.quarkusdemo.service.api.FavoriteService;
 import dev.jspmarc.springdemo.entity.constant.ApiPath;
 import dev.jspmarc.springdemo.rest.web.model.request.FavoriteRequest;
 import dev.jspmarc.springdemo.rest.web.model.response.FavoriteResponse;
-import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import java.util.List;
 import javax.inject.Inject;
