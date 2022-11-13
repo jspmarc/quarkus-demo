@@ -1,0 +1,5 @@
+FROM ghcr.io/graalvm/graalvm-ce:ol9-java17 AS build
+RUN gu install native-image
+WORKDIR /project
+VOLUME ["/project"]
+ENTRYPOINT ["native-image"]
