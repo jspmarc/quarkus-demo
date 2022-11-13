@@ -43,11 +43,11 @@ You can then execute your native executable with: `./rest-web/target/quarkus-dem
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
-### Creating a native executable for Linux x86 on M1 MacBook
+### Creating a native executable for Linux x86\_64 on M1 MacBook
 
 1. First, create the builder image
 ```
-docker build -f rest-web/docker/Dockerfile.graalbase -t graalbase .
+docker build --platform linux/amd64 -f rest-web/docker/Dockerfile.graalbase -t graalbase .
 ```
 
 2. Compile the executable
