@@ -52,7 +52,7 @@ docker build -f rest-web/docker/Dockerfile.graalbase -t graalbase .
 
 2. Compile the executable
 ```
-mvn package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native-builder-image=graalbase
+mvn package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.builder-image=graalbase
 ```
 
 More info: https://github.com/quarkusio/quarkus/issues/16225#issuecomment-1004854142
