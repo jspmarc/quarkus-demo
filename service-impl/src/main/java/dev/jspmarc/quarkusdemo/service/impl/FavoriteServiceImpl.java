@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import org.bson.types.ObjectId;
 
 @ApplicationScoped
 public class FavoriteServiceImpl implements FavoriteService {
@@ -31,6 +32,7 @@ public class FavoriteServiceImpl implements FavoriteService {
   @Override
   public Uni<FavoriteResponse> addToFavorite(FavoriteRequest favoriteRequest) {
     var favorite = Favorite.builder()
+        .id(ObjectId.get())
         .gitHubId(favoriteRequest.getGitHubId())
         .gitHubLogin(favoriteRequest.getGitHubLogin())
         .createdBy("SYSTEM")
